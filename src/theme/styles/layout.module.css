@@ -804,61 +804,70 @@
 }
 
 .credits {
-  border-top: 1px solid var(--footer-line);
+  --credits-ink: rgb(255 255 255 / 60%);
+  border-top: 1px solid rgb(255 255 255 / 10%);
   background: var(--footer-bg);
-  color: var(--footer-muted);
-  font-size: 0.84rem;
+  color: var(--credits-ink);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
 }
 
+/* Row from 640px. The right padding clears the floating WhatsApp button (right 22px + 60px wide). */
 .creditsInner {
   display: flex;
   box-sizing: border-box;
   width: 100%;
   max-width: 1240px;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 12px 24px;
+  gap: 8px 24px;
   margin-inline: auto;
-  padding: 20px var(--gutter);
+  padding: 14px 96px 14px 16px;
 }
 
 .copyright {
+  min-width: 0;
   margin: 0;
 }
 
+/* Divider, "Powered by", logo: one line that never wraps. */
 .byline {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   gap: 12px;
-  padding-left: 16px;
-  border-left: 1px solid rgb(255 255 255 / 20%);
-  color: #fff;
-  font-weight: 500;
+  white-space: nowrap;
+}
+
+.byline::before {
+  width: 1px;
+  height: 12px;
+  background: #fff;
+  content: '';
+  opacity: 0.3;
 }
 
 .powered {
   display: block;
-  --df-sealed-muted: var(--footer-muted);
+  color: var(--credits-ink);
+  --df-sealed-muted: var(--credits-ink);
 }
 
 .poweredLabel {
-  color: #fff;
-  font-weight: 500;
+  color: var(--credits-ink);
 }
 
 .dripfunnel {
+  position: relative;
   display: inline-flex;
-  min-height: 40px;
   align-items: center;
   border-radius: 4px;
-  transition-duration: 0.2s;
-  transition-property: opacity, transform;
+  transition: opacity 150ms ease;
 }
 
 .dripfunnel:hover {
-  opacity: 0.85;
-  transform: translateY(-1px);
+  opacity: 0.8;
 }
 
 .dripfunnel:focus-visible {
@@ -868,8 +877,40 @@
 
 .dripfunnelLogo {
   display: block;
-  width: 124px;
-  height: auto;
+  width: auto;
+  height: 18px;
+}
+
+@media (max-width: 639px) {
+  .credits {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .creditsInner {
+    flex-direction: column;
+    justify-content: center;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .byline::before {
+    display: none;
+  }
+
+  .dripfunnelLogo {
+    height: 16px;
+  }
+
+  /* A taller tap target that adds no height: it reaches up into the 8px gap (never the copyright line) and down through the bottom padding. */
+  .dripfunnel::before {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    bottom: -16px;
+    left: -8px;
+    content: '';
+  }
 }
 
 .dfOrange {
@@ -1170,16 +1211,10 @@
     grid-column: 1 / -1;
   }
 
-  .creditsInner,
   .paymentsRow {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-  }
-
-  .byline {
-    padding-left: 0;
-    border-left: 0;
   }
 }
 
