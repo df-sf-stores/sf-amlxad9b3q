@@ -1,11 +1,13 @@
 import { Breadcrumbs, LegalNotices, Link, Price, RichText, useProduct, useStorefront } from '@dripfunnel/storefront-core/theme'
+import { Icon } from '../components/Icons'
 import { BuyButtons } from '../components/interactive/BuyButtons'
 import { Gallery } from '../components/interactive/Gallery'
 import { Options } from '../components/interactive/Options'
 import { Retry } from '../components/interactive/Retry'
+import { WishlistHeart } from '../components/interactive/WishlistHeart'
 import { Layout } from '../components/Layout'
 import { Notice } from '../components/Notice'
-import { ProductGrid } from '../components/ProductCard'
+import { ProductGrid, splitName } from '../components/ProductCard'
 import shop from '../styles/shop.module.css'
 import styles from '../styles/product.module.css'
 
@@ -41,6 +43,7 @@ export const ProductPage = () => {
   }
   const firstMissing = page.missing[0]
   const specs = product.specs.filter((s) => s.versionId === null || s.versionId === page.version?.id)
+  const { size } = splitName(product.name)
   return (
     <Layout>
       <section className={shop.page}>
@@ -48,13 +51,21 @@ export const ProductPage = () => {
         <div className={styles.product}>
           <Gallery photos={page.photos} video={product.video} name={product.name} />
           <div className={styles.info}>
-            {product.badges[0] ? <span className={styles.badge}>{product.badges[0].label}</span> : null}
-            <h1 className={styles.title}>{product.name}</h1>
+            {product.badges[0] ? <span className={styles.badge}>{product.badges[0].label}</span> : <p className={styles.eyebrow}>{t('shop.product.eyebrow')}</p>}
+            <div className={styles.titleRow}>
+              <h1 className={styles.title}>{product.name}</h1>
+              <WishlistHeart productId={product.id} name={product.name} versionId={page.version?.id ?? null} />
+            </div>
             {page.price ? (
               <p className={styles.price}>
                 {page.from ? <span className={styles.from}>{t('shop.card.from')}</span> : null}
                 <Price money={page.price} compareAt={page.compareAt} includesTax={store.pricesIncludeTax} locale={locale} t={t} className={styles.priceTag} />
               </p>
+            ) : null}
+            {size && !page.options.length ? (
+              <div className={styles.pills}>
+                <span className={styles.pill}>{t('shop.product.pack', { size })}</span>
+              </div>
             ) : null}
             <Options page={page} />
             <p className={styles.stock} role="status">
@@ -64,10 +75,33 @@ export const ProductPage = () => {
             {product.highlights.length ? (
               <ul className={styles.highlights}>
                 {product.highlights.map((h) => (
-                  <li key={h}>{h}</li>
+                  <li key={h}>
+                    <Icon name="check" className={styles.check} />
+                    {h}
+                  </li>
                 ))}
               </ul>
             ) : null}
+            <ul className={styles.trust}>
+              <li>
+                <span className={styles.trustIcon}>
+                  <Icon name="leaf" />
+                </span>
+                {t('shop.product.trust.natural')}
+              </li>
+              <li>
+                <span className={styles.trustIcon}>
+                  <Icon name="shield" />
+                </span>
+                {t('shop.product.trust.secure')}
+              </li>
+              <li>
+                <span className={styles.trustIcon}>
+                  <Icon name="truck" />
+                </span>
+                {t('shop.product.trust.fresh')}
+              </li>
+            </ul>
             <LegalNotices notices={product.legal} t={t} className={styles.legal} />
             <div className={styles.sections}>
               {product.description ? (
@@ -79,8 +113,11 @@ export const ProductPage = () => {
                 </section>
               ) : null}
               {specs.length ? (
-                <details className={styles.section}>
-                  <summary className={styles.summary}>{t('shop.product.specs')}</summary>
+                <details className={styles.section} open>
+                  <summary className={styles.summary}>
+                    {t('shop.product.specs')}
+                    <Icon name="plus" className={styles.summaryIcon} />
+                  </summary>
                   <dl className={styles.specs}>
                     {specs.map((s) => (
                       <div key={`${s.name}-${s.versionId ?? ''}`} className={styles.spec}>
@@ -93,7 +130,10 @@ export const ProductPage = () => {
               ) : null}
               {product.returns || product.warranty ? (
                 <details className={styles.section}>
-                  <summary className={styles.summary}>{t('shop.product.delivery')}</summary>
+                  <summary className={styles.summary}>
+                    {t('shop.product.delivery')}
+                    <Icon name="plus" className={styles.summaryIcon} />
+                  </summary>
                   {product.returns ? <p className={styles.body}>{product.returns}</p> : null}
                   {product.warranty ? (
                     <p className={styles.body}>
@@ -104,8 +144,11 @@ export const ProductPage = () => {
               ) : null}
               {product.faqs.length ? (
                 <details className={styles.section}>
-                  <summary className={styles.summary}>{t('shop.product.questions')}</summary>
-                  <dl className={styles.specs}>
+                  <summary className={styles.summary}>
+                    {t('shop.product.questions')}
+                    <Icon name="plus" className={styles.summaryIcon} />
+                  </summary>
+                  <dl className={styles.faqs}>
                     {product.faqs.map((f) => (
                       <div key={f.question} className={styles.faq}>
                         <dt>{f.question}</dt>

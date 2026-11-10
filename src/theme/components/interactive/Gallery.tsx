@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 import { Image, useStorefront, Video, type Photo, type VideoFile } from '@dripfunnel/storefront-core/theme'
+import { Icon } from '../Icons'
+import { QuickView } from './Lightbox'
 import styles from '../../styles/product.module.css'
 
 /** The chosen picture large, the rest as thumbnails, and the product's video last. */
@@ -17,6 +19,12 @@ export const Gallery = ({ photos, video, name }: { photos: readonly Photo[]; vid
     <div className={styles.gallery}>
       <div className={styles.stage}>
         {playing && video ? <Video video={video} poster={first} label={name} ratio={0.8} className={styles.media} /> : <Image image={photo} alt={photo.alt ?? name} ratio={0.8} sizes="(min-width: 900px) 50vw, 100vw" className={styles.media} />}
+        {playing ? null : (
+          <QuickView photo={photo} name={photo.alt ?? name} className={styles.zoom}>
+            <Icon name="expand" className={styles.zoomIcon} />
+            {t('shop.product.zoom')}
+          </QuickView>
+        )}
       </div>
       {photos.length > 1 || video ? (
         <div className={styles.thumbs}>

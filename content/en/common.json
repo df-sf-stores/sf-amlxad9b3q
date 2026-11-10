@@ -1,36 +1,62 @@
 {
+  "announce": {
+    "one": "100% Natural · No Added Colours",
+    "two": "FSSAI Lic. No. 22226083000608",
+    "three": "Order online, delivered fresh to your door",
+    "four": "Made with care in Jaipur, Rajasthan"
+  },
   "nav": {
     "label": "Main",
-    "menu": "Menu",
+    "menu": "Open menu",
+    "close": "Close menu",
     "submenu": "Submenu: {item}",
     "home": "Home",
-    "shopAll": "Shop all",
+    "shopAll": "Shop All",
     "about": "About",
     "contact": "Contact"
   },
   "tools": {
     "search": "Search",
-    "searchPrompt": "Search products…",
+    "searchPrompt": "Search spices, dry fruits…",
     "account": "Account",
     "wishlist": "Wishlist",
     "wishlistCount": "Wishlist, {count, plural, one {# item} other {# items}}",
     "cart": "Cart",
     "cartCount": "Cart, {count, plural, one {# item} other {# items}}"
   },
-  "footer": {
-    "note": "Thank you for shopping with us.",
-    "shop": "Shop",
-    "all": "Shop all",
-    "help": "Help",
-    "shipping": "Shipping",
-    "returns": "Returns",
-    "privacy": "Privacy",
-    "terms": "Terms",
-    "legal": "Legal",
-    "touch": "Get in touch",
-    "orders": "My orders",
-    "faq": "FAQs",
+  "float": {
+    "tip": "Need help? Chat with us",
+    "url": "https://wa.me/919352454356?text=Hi%20PureRoot%2C%20I%27d%20like%20to%20place%20an%20order.",
     "whatsapp": "Chat with us on WhatsApp",
-    "rights": "© 2026 {store}. All rights reserved."
+    "top": "Back to top"
+  },
+  "links": {
+    "tel": "tel:{phone}",
+    "mail": "mailto:{email}"
+  },
+  "footer": {
+    "note": "Pure Taste · Healthy Life. 100% natural spices and premium dry fruits, packed with care in Jaipur.",
+    "quick": "Quick Links",
+    "shop": "Products",
+    "all": "Shop all products",
+    "help": "Help",
+    "shipping": "Shipping policy",
+    "returns": "Returns & refunds",
+    "privacy": "Privacy policy",
+    "terms": "Terms of service",
+    "legal": "Legal",
+    "touch": "Contact",
+    "fssai": "FSSAI Lic. 22226083000608",
+    "orders": "Track my orders",
+    "faq": "FAQ",
+    "whatsapp": "Chat with us on WhatsApp",
+    "payments": "Ways to pay",
+    "payCards": "Cards",
+    "payUpi": "UPI & wallets",
+    "payBank": "Net banking",
+    "rights": "© 2026 {store}. Marketing & Manufacturing by Kaneriya And Sons.",
+    "poweredBy": "Powered By",
+    "dripfunnel": "DripFunnel",
+    "dripfunnelUrl": "https://www.dripfunnel.com/in/"
   }
 }

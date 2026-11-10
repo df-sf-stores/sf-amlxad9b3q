@@ -1,10 +1,7 @@
 import type { ReactNode } from 'react'
-import { Image, Link, useCollections, useStorefront } from '@dripfunnel/storefront-core/theme'
+import { Link, StoreLogo, useStorefront } from '@dripfunnel/storefront-core/theme'
 import { Layout } from '../components/Layout'
 import { Ornament } from '../components/Ornament'
-import { cx } from '../components/cx'
-import art from '../styles/art.module.css'
-import home from '../styles/home.module.css'
 import styles from '../styles/about.module.css'
 
 const Value = ({ title, body, children }: { title: string; body: string; children: ReactNode }) => (
@@ -21,9 +18,6 @@ const Value = ({ title, body, children }: { title: string; body: string; childre
 
 export const AboutPage = () => {
   const { store, t } = useStorefront()
-  const { collections } = useCollections({ first: 20 })
-  const storyImage = collections[0]?.image ?? null
-  const detailImage = collections[1]?.image ?? null
   const address = store.address ? [store.address.street, store.address.city, store.address.region, store.address.postal].filter(Boolean).join(', ') : ''
   const whatsapp = store.social.find((s) => s.network === 'whatsapp')
   const visit = address || store.contactPhone || store.contactEmail
@@ -35,15 +29,9 @@ export const AboutPage = () => {
         <Ornament className={styles.heroOrnament} />
         <p className={styles.heroLead}>{t('pages.about.lead', { store: store.name })}</p>
       </section>
-      <div className={home.templeBorder} />
       <section className={styles.story}>
-        <div className={styles.storyPictures}>
-          <div className={cx(styles.arch, art.art, art.stone)}>
-            {storyImage ? <Image image={storyImage} alt="" ratio={0.8} sizes="(min-width: 900px) 448px, 100vw" className={home.cover} /> : null}
-          </div>
-          <div className={cx(styles.detail, art.art, art.sand)}>
-            {detailImage ? <Image image={detailImage} alt="" ratio={1} sizes="144px" className={home.cover} /> : null}
-          </div>
+        <div className={styles.logoCard}>
+          <StoreLogo className={styles.logo} />
         </div>
         <div className={styles.storyCopy}>
           <p className={styles.eyebrow}>{t('pages.about.story.eyebrow')}</p>
@@ -100,7 +88,6 @@ export const AboutPage = () => {
           </div>
         </section>
       ) : null}
-      <div className={cx(home.templeBorder, home.templeBorderFlip)} />
       <section className={styles.closing}>
         <p className={styles.closingText}>{t('pages.about.closing', { store: store.name })}</p>
       </section>

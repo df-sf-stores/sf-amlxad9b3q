@@ -1,0 +1,81 @@
+.lightbox {
+  position: fixed;
+  z-index: 98;
+  display: grid;
+  box-sizing: border-box;
+  place-items: center;
+  padding: 20px;
+  backdrop-filter: blur(6px);
+  background: rgb(6 16 10 / 90%);
+  animation: fade 0.3s ease;
+  inset: 0;
+}
+
+.figure {
+  max-width: min(900px, 100%);
+  margin: 0;
+  text-align: center;
+}
+
+.image {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 82vh;
+  margin-inline: auto;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 30px 80px rgb(0 0 0 / 50%);
+  object-fit: contain;
+}
+
+.caption {
+  margin-top: 14px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 12%);
+  color: #fff;
+  cursor: pointer;
+  transition-duration: 0.2s;
+  transition-property: background-color;
+}
+
+.close:hover {
+  background: rgb(255 255 255 / 22%);
+}
+
+.close:focus-visible {
+  outline: 2.5px solid #c8900f;
+  outline-offset: 3px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox {
+    animation: none;
+  }
+}

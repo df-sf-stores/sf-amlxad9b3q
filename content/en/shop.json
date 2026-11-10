@@ -6,7 +6,12 @@
     "from": "From",
     "soldOut": "Sold out",
     "noPicture": "No picture yet",
-    "view": "View details"
+    "view": "View details",
+    "shop": "Shop now"
+  },
+  "lightbox": {
+    "open": "View a larger picture of {name}",
+    "close": "Close the picture"
   },
   "listing": {
     "heading": "Products",
@@ -87,6 +92,17 @@
       "sendHintExpiry": "We email it that morning. Leave it empty to send it now. It can be used for {months, plural, one {# month} other {# months}} after it's sent.",
       "add": "Add gift card to cart",
       "needed": "Add the recipient's name and email to add this gift card."
+    },
+    "eyebrow": "PureRoot Natural Foods",
+    "pack": "Pack of {size}",
+    "quantity": "Quantity",
+    "less": "One fewer",
+    "more": "One more",
+    "zoom": "View larger",
+    "trust": {
+      "natural": "100% natural, no added colours",
+      "secure": "Secure online payment",
+      "fresh": "Packed fresh, delivered to you"
     }
   },
   "cart": {

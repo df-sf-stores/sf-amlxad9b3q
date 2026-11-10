@@ -1,8 +1,8 @@
 :root {
-  --color-brand: #111827;
-  --color-surface: #ffffff;
-  --color-text: #111827;
-  --font-body: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --color-brand: #0e3b23;
+  --color-surface: #fbf8f1;
+  --color-text: #17201a;
+  --font-body: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 
 body {

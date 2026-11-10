@@ -2,9 +2,8 @@
 
 import { useEffect, useId, useRef, useState } from 'react'
 import { AddToCart, BuyNow, Link, TextField, useStorefront, type GiftRecipient, type ProductPage } from '@dripfunnel/storefront-core/theme'
-import shop from '../../styles/shop.module.css'
+import { Icon } from '../Icons'
 import styles from '../../styles/product.module.css'
-import { WishlistHeart } from './WishlistHeart'
 
 const emailLike = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -16,6 +15,7 @@ export const BuyButtons = ({ page }: { page: ProductPage }) => {
   const { t } = useStorefront()
   const [addedId, setAddedId] = useState<string | null>(null)
   const [failed, setFailed] = useState(false)
+  const [quantity, setQuantity] = useState(1)
   const [gift, setGift] = useState<GiftRecipient>({ recipientName: '', recipientEmail: '', sendOn: '', message: '' })
   const version = page.version
   const kind = page.product?.kind
@@ -61,17 +61,31 @@ export const BuyButtons = ({ page }: { page: ProductPage }) => {
           {t('shop.product.gift.needed')}
         </p>
       ) : null}
+      {isGift ? null : (
+        <div className={styles.qty} role="group" aria-label={t('shop.product.quantity')}>
+          <button type="button" className={styles.qtyButton} aria-label={t('shop.product.less')} disabled={quantity <= 1} onClick={() => setQuantity(Math.max(1, quantity - 1))}>
+            <Icon name="minus" />
+          </button>
+          <span className={styles.qtyValue} aria-live="polite">
+            {quantity}
+          </span>
+          <button type="button" className={styles.qtyButton} aria-label={t('shop.product.more')} disabled={quantity >= 20} onClick={() => setQuantity(Math.min(20, quantity + 1))}>
+            <Icon name="plus" />
+          </button>
+        </div>
+      )}
       {inCart ? (
-        <Link href="/cart/" className={shop.primary} ref={goToCart}>
+        <Link href="/cart/" className={styles.add} ref={goToCart}>
           {t('shop.product.goToCart')}
         </Link>
       ) : (
         <AddToCart
           versionId={version?.id ?? null}
+          quantity={isGift ? 1 : quantity}
           disabled={!buyable}
           gift={isGift ? gift : null}
           describedBy={waitsForRecipient ? why : undefined}
-          className={shop.primary}
+          className={styles.add}
           onDone={(worked) => {
             setFailed(!worked)
             if (!worked) return
@@ -79,15 +93,15 @@ export const BuyButtons = ({ page }: { page: ProductPage }) => {
             setAddedId(version?.id ?? null)
           }}
         >
+          <Icon name="cart" />
           {isGift ? t('shop.product.gift.add') : t('shop.product.add')}
         </AddToCart>
       )}
       {isGift ? null : (
-        <BuyNow versionId={version?.id ?? null} disabled={!buyable} className={shop.secondary} onDone={(bought) => setFailed(!bought)}>
+        <BuyNow versionId={version?.id ?? null} quantity={quantity} disabled={!buyable} className={styles.now} onDone={(bought) => setFailed(!bought)}>
           {t('shop.product.buyNow')}
         </BuyNow>
       )}
-      {page.product ? <WishlistHeart productId={page.product.id} name={page.product.name} versionId={version?.id ?? null} /> : null}
       {failed || added ? (
         <p className={styles.added} role="status">
           {failed ? t('shop.product.addFailed') : t('shop.product.added')}
