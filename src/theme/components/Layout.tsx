@@ -166,9 +166,6 @@ export const Layout = ({ children }: { children: ReactNode }) => {
                 <Link href={t('common.links.mail', { email: store.contactEmail })}>{store.contactEmail}</Link>
               </p>
             ) : null}
-            <Link href="/contact/" className={styles.footerLink}>
-              {t('common.nav.contact')}
-            </Link>
           </div>
         </div>
         <div className={styles.paymentsRow}>

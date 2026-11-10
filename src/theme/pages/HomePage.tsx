@@ -241,6 +241,13 @@ export const HomePage = () => {
         </ul>
       </section>
 
+      {/* Products */}
+      <section className={ui.section} id="products">
+        <div className={ui.container}>
+          <ProductTabs collections={collectionsStatus === 'ready' ? collections : []} eyebrow={t('home.products.eyebrow')} title={t('home.products.title')} em={t('home.products.titleEm')} />
+        </div>
+      </section>
+
       {/* Shop by category */}
       {collectionsStatus === 'loading' || collectionsStatus === 'idle' || collections.length ? (
         <section className={ui.section}>
@@ -274,13 +281,6 @@ export const HomePage = () => {
           </div>
         </section>
       ) : null}
-
-      {/* Products */}
-      <section className={ui.section} id="products">
-        <div className={ui.container}>
-          <ProductTabs collections={collectionsStatus === 'ready' ? collections : []} eyebrow={t('home.products.eyebrow')} title={t('home.products.title')} em={t('home.products.titleEm')} />
-        </div>
-      </section>
 
       {/* Product spotlight */}
       {spotlight ? (
