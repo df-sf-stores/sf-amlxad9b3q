@@ -1,14 +1,24 @@
 'use client'
 
 import { useState } from 'react'
-import { Checkbox, Select, useStorefront, type Listing, type SortKey } from '@dripfunnel/storefront-core/theme'
+import { Checkbox, Link, PriceRange, Select, useStorefront, type CollectionCard, type Listing, type SortKey } from '@dripfunnel/storefront-core/theme'
+import { cx } from '../cx'
 import styles from '../../styles/shop.module.css'
 
-/** The filter values, a sidebar on wide screens and a panel the Filters button opens on narrow ones. */
-export const FilterPanel = ({ listing }: { listing: Listing }) => {
+/** Whether a price range is chosen. */
+export const priced = (listing: Listing) => listing.priceRange.min !== null || listing.priceRange.max !== null
+
+/** Whether the panel has anything to show: the store's filter groups, categories, or a price range. */
+export const filterable = (listing: Listing, categories: CollectionCard[]) => listing.facets.length > 0 || categories.length > 0 || listing.priceBounds !== null
+
+/**
+ * The filters: categories (on collection pages), the price range and the store's filter values.
+ * A sidebar on wide screens and a panel the Filters button opens on narrow ones.
+ */
+export const FilterPanel = ({ listing, categories, here }: { listing: Listing; categories: CollectionCard[]; here: string | null }) => {
   const { t } = useStorefront()
   const [open, setOpen] = useState(false)
-  if (listing.facets.length === 0) return null
+  if (!filterable(listing, categories)) return null
   return (
     <aside className={styles.filters}>
       <button type="button" className={styles.filterToggle} aria-expanded={open} aria-controls="listing-filters" onClick={() => setOpen(!open)}>
@@ -16,6 +26,33 @@ export const FilterPanel = ({ listing }: { listing: Listing }) => {
         {listing.selected.length ? <span className={styles.count}>{listing.selected.length}</span> : null}
       </button>
       <div id="listing-filters" className={open ? styles.filterBodyOpen : styles.filterBody}>
+        {categories.length ? (
+          <nav aria-label={t('shop.listing.category')} className={styles.facet}>
+            <p className={styles.facetName}>{t('shop.listing.category')}</p>
+            <ul className={styles.categoryList}>
+              {[{ id: 'all', name: t('shop.collection.all'), href: '/collections/all/' }, ...categories].map((c) => (
+                <li key={c.id}>
+                  <Link href={c.href} className={cx(styles.category, c.href === here && styles.categoryOn)} aria-current={c.href === here ? 'page' : undefined}>
+                    {c.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        ) : null}
+        {listing.priceBounds ? (
+          <div className={styles.facet}>
+            <p className={styles.facetName}>{t('shop.listing.price')}</p>
+            <PriceRange
+              bounds={listing.priceBounds}
+              value={listing.priceRange}
+              onChange={listing.setPriceRange}
+              label={t('shop.listing.price')}
+              className={styles.price}
+              parts={{ track: styles.priceTrack, rail: styles.priceRail, fill: styles.priceFill, thumb: styles.priceThumb, ends: styles.priceEnds, select: styles.priceSelect, to: styles.muted }}
+            />
+          </div>
+        ) : null}
         {listing.facets.map((facet) => (
           <div key={facet.id} role="group" aria-label={facet.name} className={styles.facet}>
             <p className={styles.facetName}>{facet.name}</p>
@@ -56,7 +93,7 @@ export const ListingBar = ({ listing }: { listing: Listing }) => {
             </svg>
           </button>
         ))}
-        {listing.selected.length > 1 ? (
+        {listing.selected.length > 1 || priced(listing) ? (
           <button type="button" className={styles.clear} onClick={listing.clear}>
             {t('shop.listing.clear')}
           </button>
