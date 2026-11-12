@@ -117,14 +117,6 @@
   box-shadow: var(--shadow-lg);
 }
 
-.logo {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: 100%;
-  object-fit: contain;
-}
-
 .storyCopy {
   display: flex;
   flex-direction: column;
@@ -404,6 +396,8 @@
 .qr {
   overflow: hidden;
   width: min(100%, 220px);
+  box-sizing: border-box;
+  padding: 10px;
   border-radius: 12px;
   background: #fff;
 }
@@ -415,6 +409,8 @@
 .qrImage {
   display: block;
   width: 100%;
+  height: auto;
+  aspect-ratio: 1;
 }
 
 .visitPanel {
