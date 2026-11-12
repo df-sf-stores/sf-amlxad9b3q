@@ -100,7 +100,9 @@
 
 /* The store's logo from Site settings › Brand, on the brand's forest green. */
 .logoCard {
+  position: relative;
   display: grid;
+  overflow: hidden;
   width: min(100%, 448px);
   box-sizing: border-box;
   aspect-ratio: 4 / 5;
@@ -129,6 +131,56 @@
   gap: 20px;
 }
 
+.founderPhoto {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.founderPhoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.role {
+  margin: -8px 0 0;
+  color: var(--gold-text);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.subheading {
+  margin: 8px 0 0;
+  color: var(--accent);
+  font-family: var(--heading-font);
+  font-size: 20px;
+  font-weight: var(--heading-weight);
+}
+
+.promiseNote {
+  padding: 20px 24px;
+  border-left: 4px solid var(--gold);
+  border-radius: 12px;
+  background: var(--gold-soft);
+}
+
+.promiseNoteTitle {
+  margin: 0;
+  color: var(--forest);
+  font-weight: 700;
+}
+
+.promiseNoteBody {
+  margin: 6px 0 0;
+  color: var(--forest);
+  font-style: italic;
+  line-height: 1.6;
+}
+
 /* Our promise */
 
 .promise {
@@ -149,39 +201,48 @@
   text-align: center;
 }
 
-.values {
+.principles {
   display: grid;
   max-width: 1080px;
-  gap: 24px;
+  gap: 16px;
   grid-template-columns: minmax(0, 1fr);
   margin: 48px auto 0;
   padding: 0;
+  counter-reset: principle;
   list-style: none;
 }
 
-.value {
+.principle {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  padding: 24px;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
   border: 1px solid rgb(179 165 147 / 30%);
   border-radius: 16px;
   background: var(--surface);
   box-shadow: 0 1px 2px rgb(38 34 31 / 6%);
-  text-align: center;
-  transition: transform 0.3s ease;
+  counter-increment: principle;
 }
 
-.value:hover {
-  transform: translateY(-4px);
+/* The principle number, from a CSS counter so it stays in order. */
+.principle::after {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  color: var(--gold-text);
+  content: counter(principle, decimal-leading-zero);
+  font-family: var(--heading-font);
+  font-size: 15px;
+  font-weight: 600;
 }
 
-.valueIcon {
+.principleIcon {
   display: inline-flex;
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   box-sizing: border-box;
+  flex: none;
   align-items: center;
   justify-content: center;
   border-radius: 999px;
@@ -190,8 +251,7 @@
   color: var(--accent);
 }
 
-.valueIcon svg,
-.visitIcon svg {
+.principleIcon svg {
   width: 24px;
   height: 24px;
   fill: none;
@@ -201,19 +261,122 @@
   stroke-width: 1.75;
 }
 
-.valueTitle {
-  margin: 4px 0 0;
-  color: var(--accent);
-  font-family: var(--heading-font);
-  font-size: 20px;
-  font-weight: var(--heading-weight);
+.principleCopy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 6px;
+  padding-right: 24px;
 }
 
-.valueBody {
+.principleTitle {
+  margin: 0;
+  color: var(--accent);
+  font-family: var(--heading-font);
+  font-size: 18px;
+  font-weight: var(--heading-weight);
+  line-height: 1.3;
+}
+
+.principleBody {
   margin: 0;
   color: var(--muted);
   font-size: 14px;
   line-height: 1.6;
+}
+
+/* Vision and mission */
+
+.purpose {
+  display: grid;
+  box-sizing: border-box;
+  width: min(100%, 1080px);
+  gap: 20px;
+  grid-template-columns: minmax(0, 1fr);
+  margin: 0 auto;
+  padding: 0 16px 64px;
+}
+
+.purposeCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 28px;
+  border: 1px solid rgb(179 165 147 / 30%);
+  border-top: 4px solid var(--gold);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.purposeTitle {
+  margin: 0;
+  color: var(--accent);
+  font-family: var(--heading-font);
+  font-size: 24px;
+  font-weight: var(--heading-weight);
+}
+
+/* Leadership mantra */
+
+.mantra {
+  padding: 64px 16px;
+  background:
+    radial-gradient(rgb(179 165 147 / 25%) 1px, transparent 1.6px) 0 0 / 22px 22px,
+    var(--accent);
+  color: var(--accent-ink);
+}
+
+.mantraCard {
+  display: flex;
+  max-width: 760px;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.mantraTitle {
+  margin: 12px 0 0;
+  color: var(--taupe);
+  font-family: var(--heading-font);
+  font-size: 34px;
+  font-weight: var(--heading-weight);
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.mantraQuote {
+  margin: 20px 0 0;
+  font-family: var(--heading-font);
+  font-size: 22px;
+  font-style: italic;
+  line-height: 1.45;
+  text-wrap: balance;
+}
+
+.mantraLine {
+  margin: 20px 0 0;
+  color: rgb(255 255 255 / 85%);
+  font-size: 15px;
+  line-height: 1.7;
+  text-wrap: balance;
+}
+
+.mantraSign {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 28px 0 0;
+  color: rgb(255 255 255 / 75%);
+  font-size: 13px;
+}
+
+.mantraName {
+  color: var(--accent-ink);
+  font-size: 16px;
+  font-weight: 600;
 }
 
 /* Visit our store */
@@ -234,6 +397,26 @@
   box-shadow: 0 1px 2px rgb(38 34 31 / 6%);
 }
 
+.visitCardSolo {
+  max-width: 420px;
+}
+
+.qr {
+  overflow: hidden;
+  width: min(100%, 220px);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.qr:empty {
+  display: none;
+}
+
+.qrImage {
+  display: block;
+  width: 100%;
+}
+
 .visitPanel {
   display: flex;
   flex-direction: column;
@@ -246,24 +429,6 @@
     var(--accent);
   color: var(--accent-ink);
   text-align: center;
-}
-
-.visitIcon {
-  display: inline-flex;
-  width: 96px;
-  height: 96px;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  background: rgb(250 249 247 / 10%);
-  box-shadow: 0 0 0 1px rgb(179 165 147 / 60%);
-  color: var(--taupe);
-}
-
-.visitIcon svg {
-  width: 40px;
-  height: 40px;
 }
 
 .visitTitle {
@@ -352,8 +517,9 @@
 }
 
 @media (min-width: 640px) {
-  .values {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .principles,
+  .purpose {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -364,10 +530,12 @@
     padding: 96px 32px;
   }
 
-
-
   .visitCard {
     grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  }
+
+  .visitCardSolo {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .visitPanel,
@@ -408,11 +576,29 @@
   .closingText {
     font-size: 30px;
   }
+
+  .mantra {
+    padding: 96px 32px;
+  }
+
+  .mantraTitle {
+    font-size: 44px;
+  }
+
+  .mantraQuote {
+    font-size: 28px;
+  }
+
+  .purpose {
+    padding: 0 32px 96px;
+  }
 }
 
 /* The store's name runs through these lines, and a long one wraps rather than widening the page. */
 .heroLead,
 .lead,
+.principleTitle,
+.principleBody,
 .body,
 .visitName,
 .closingText {
