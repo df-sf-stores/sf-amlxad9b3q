@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { Link, ThemeImage, useStorefront } from '@dripfunnel/storefront-core/theme'
+import { Link, StoreLogo, useStorefront } from '@dripfunnel/storefront-core/theme'
 import { Layout } from '../components/Layout'
 import { Ornament } from '../components/Ornament'
 import styles from '../styles/about.module.css'
@@ -34,13 +34,7 @@ export const AboutPage = () => {
 
       <section className={styles.story}>
         <div className={styles.logoCard}>
-          <ThemeImage
-            src="founder-sunder.webp"
-            alt={t('pages.about.founder.imageAlt')}
-            ratio={4 / 5}
-            sizes="(min-width: 768px) 448px, 90vw"
-            className={styles.founderPhoto}
-          />
+          <StoreLogo className={styles.logo} />
         </div>
         <div className={styles.storyCopy}>
           <p className={styles.eyebrow}>{t('pages.about.founder.eyebrow')}</p>
@@ -130,9 +124,6 @@ export const AboutPage = () => {
         <div className={details ? styles.visitCard : `${styles.visitCard} ${styles.visitCardSolo}`}>
           <div className={styles.visitPanel}>
             <h2 className={styles.visitTitle}>{t('pages.about.visit.title')}</h2>
-            <div className={styles.qr}>
-              <ThemeImage src="scan-to-order.png" alt={t('pages.about.visit.qrAlt')} ratio={1} sizes="240px" className={styles.qrImage} />
-            </div>
             <p className={styles.visitLead}>{t('pages.about.visit.lead')}</p>
           </div>
           {details ? (
