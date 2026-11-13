@@ -1,16 +1,21 @@
-import { Link, useStorefront, type Listing } from '@dripfunnel/storefront-core/theme'
-import { FilterPanel, ListingBar, LoadMore } from './interactive/Filters'
+import { Link, useCollections, useStorefront, type Listing } from '@dripfunnel/storefront-core/theme'
+import { filterable, FilterPanel, ListingBar, LoadMore, priced } from './interactive/Filters'
 import { Retry } from './interactive/Retry'
 import { Notice } from './Notice'
 import { GridPlaceholder, ProductGrid } from './ProductCard'
 import styles from '../styles/shop.module.css'
 
-/** A collection's or a search's products: filters, sort, the grid and its states, and "Load more". */
-export const ListingResults = ({ listing }: { listing: Listing }) => {
+/**
+ * A collection's or a search's products: filters, sort, the grid and its states, and "Load more".
+ * `here` is the collection page's address, which adds the category links to the filters; a search passes none.
+ */
+export const ListingResults = ({ listing, here = null }: { listing: Listing; here?: string | null }) => {
   const { t } = useStorefront()
+  const { collections, status } = useCollections({ first: 20 })
+  const categories = here !== null && status === 'ready' ? collections : []
   return (
-    <div className={listing.facets.length ? styles.listingFiltered : styles.listing}>
-      <FilterPanel listing={listing} />
+    <div className={filterable(listing, categories) ? styles.listingFiltered : styles.listing}>
+      <FilterPanel listing={listing} categories={categories} here={here} />
       <div className={styles.results}>
         <h2 className={styles.hiddenHeading}>{t('shop.listing.heading')}</h2>
         {listing.status === 'ready' ? (
@@ -23,7 +28,7 @@ export const ListingResults = ({ listing }: { listing: Listing }) => {
           </Notice>
         ) : null}
         {listing.status === 'ready' && listing.items.length === 0 ? (
-          listing.selected.length ? (
+          listing.selected.length || priced(listing) ? (
             <Notice title={t('shop.listing.empty')} lead={t('shop.listing.emptyLead')}>
               <Retry label={t('shop.listing.clear')} onRetry={listing.clear} />
             </Notice>

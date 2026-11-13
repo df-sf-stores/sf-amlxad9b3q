@@ -30,7 +30,7 @@ export const CollectionPage = () => {
               <h1 className={styles.title}>{name ?? t('shop.collection.loading')}</h1>
               {lead ? <p className={styles.lead}>{lead}</p> : null}
             </header>
-            <ListingResults listing={page} />
+            <ListingResults listing={page} here={page.collection?.href ?? (page.all ? '/collections/all/' : null)} />
           </>
         )}
       </section>
