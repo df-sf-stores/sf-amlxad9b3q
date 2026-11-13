@@ -731,13 +731,7 @@
 }
 
 .socialLink {
-  display: inline-flex;
-  min-width: 40px;
-  height: 40px;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
-  padding: 0 12px;
+  padding: 6px 12px;
   border: 1px solid rgb(255 255 255 / 16%);
   border-radius: 999px;
   color: #fff;
@@ -752,27 +746,6 @@
 .socialLink:hover {
   border-color: var(--gold-soft);
   color: var(--gold-soft);
-}
-
-.socialLink:focus-visible {
-  outline: 2px solid var(--gold-soft);
-  outline-offset: 2px;
-}
-
-.socialIcon {
-  display: block;
-  width: 18px;
-  height: 18px;
-}
-
-/* With a mark, the button is a round icon and the name is left for screen readers via aria-label. */
-.socialLink:has(.socialIcon) {
-  width: 40px;
-  padding: 0;
-}
-
-.socialLink:has(.socialIcon) .socialName {
-  display: none;
 }
 
 .payments {

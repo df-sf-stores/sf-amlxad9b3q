@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import { ConsentBanner, ConsentSettingsButton, Link, PoweredBy, PreviewBanner, StoreLogo, useCollections, useMenu, useStorefront, type MenuItem } from '@dripfunnel/storefront-core/theme'
 import { DripFunnelLogo } from './DripFunnelLogo'
-import { Icon, SocialIcon } from './Icons'
+import { Icon } from './Icons'
 import { DrawerSearch, Header } from './interactive/Header'
 import { Floating } from './interactive/Floating'
 import styles from '../styles/layout.module.css'
@@ -85,9 +85,8 @@ export const Layout = ({ children }: { children: ReactNode }) => {
             {store.social.length ? (
               <div className={styles.social}>
                 {store.social.map((s) => (
-                  <Link key={s.network} href={s.url} className={styles.socialLink} aria-label={s.network}>
-                    <SocialIcon network={s.network} className={styles.socialIcon} />
-                    <span className={styles.socialName}>{s.network}</span>
+                  <Link key={s.network} href={s.url} className={styles.socialLink}>
+                    {s.network}
                   </Link>
                 ))}
               </div>

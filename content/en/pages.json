@@ -58,87 +58,39 @@
     "lead": "The shop is closed for now. Please come back later."
   },
   "about": {
-    "eyebrow": "Our Values • Our Culture • Our Commitment",
+    "eyebrow": "Our Story",
     "title": "About {store}",
-    "lead": "All Spices • Dry Fruits • Healthy Foods. Pure Roots, Pure Trust, Pure Health.",
-    "founder": {
-      "eyebrow": "Meet our founder",
-      "name": "Sunder Singh Chauhan",
-      "role": "Founder & Managing Director, PureRoot Natural Foods",
-      "imageAlt": "Sunder Singh Chauhan, Founder and Managing Director of PureRoot Natural Foods",
-      "commitmentTitle": "Leadership Commitment",
-      "commitment": "We believe leadership is not about giving orders; it is about setting standards, taking responsibility and inspiring people. At PureRoot Natural Foods, we commit to putting customers, quality and integrity before everything else.",
-      "promiseTitle": "Our Commitment",
-      "promise": "To deliver pure, natural and healthy food products to every family with honesty and care."
+    "lead": "Welcome to {store}. Here is a little about who we are and what we do.",
+    "story": {
+      "eyebrow": "Who we are",
+      "title": "A shop built on",
+      "accent": "care and quality",
+      "first": "We started {store} to bring together pieces we love and believe in. Every item in our shop is chosen with care, so you can shop with confidence.",
+      "second": "We are always adding to our collections, and we are glad to hear what you would like to see next. Thank you for shopping with us."
     },
-    "purpose": {
-      "vision": {
-        "title": "Our Vision",
-        "body": "To become a trusted and respected food brand by delivering pure, natural, healthy and quality food products to every family."
+    "promise": {
+      "eyebrow": "Our Promise",
+      "title": "More than just products",
+      "body": "We want every order to be a pleasure, from the moment you browse to the moment it arrives.",
+      "designs": {
+        "title": "Thoughtful Choices",
+        "body": "Pieces picked for their design and the way they are made."
       },
-      "mission": {
-        "title": "Our Mission",
-        "body": "To make quality food accessible to everyone through honesty, innovation, customer satisfaction and responsible business practices."
-      }
-    },
-    "principles": {
-      "eyebrow": "Owner’s Principles",
-      "title": "10 Leadership Principles",
-      "body": "The values that guide every product we make and every family we serve.",
       "quality": {
-        "title": "Quality First",
-        "body": "Never compromise on product quality, purity or food safety."
+        "title": "Lasting Quality",
+        "body": "Made to be used, enjoyed and kept."
       },
-      "customer": {
-        "title": "Customer Comes First",
-        "body": "Build customer relationships through trust, service and satisfaction."
-      },
-      "honesty": {
-        "title": "Honesty & Transparency",
-        "body": "Maintain fair pricing, truthful communication and ethical business practices."
-      },
-      "longTerm": {
-        "title": "Think Long-Term",
-        "body": "Focus on building a trusted brand rather than chasing short-term profits."
-      },
-      "innovation": {
-        "title": "Innovation & Improvement",
-        "body": "Continuously improve products, packaging, marketing and customer experience."
-      },
-      "teamwork": {
-        "title": "Teamwork & Respect",
-        "body": "Encourage teamwork, responsibility and respect for every employee."
-      },
-      "ownership": {
-        "title": "Ownership & Accountability",
-        "body": "Take responsibility for every decision, commitment and result."
-      },
-      "trust": {
-        "title": "Customer Trust is Our Asset",
-        "body": "Every product delivered should strengthen our reputation."
-      },
-      "sustainable": {
-        "title": "Sustainable Growth",
-        "body": "Support responsible sourcing, reduce unnecessary waste and grow sustainably."
-      },
-      "lead": {
-        "title": "Lead by Example",
-        "body": "Leadership means demonstrating discipline, integrity, dedication and commitment through actions."
+      "service": {
+        "title": "Friendly Service",
+        "body": "Real people ready to help with your order."
       }
-    },
-    "mantra": {
-      "eyebrow": "Our Leadership Mantra",
-      "title": "Pure Root, Pure Trust",
-      "quote": "“We don’t just sell food; we build trust with every product.”",
-      "line": "Purity in Products. Honesty in Business. Trust in Every Home."
     },
     "visit": {
-      "title": "Scan to Order",
-      "lead": "Natural • Premium • Pure",
-      "qrAlt": "QR code to order from PureRoot Natural Foods",
+      "title": "Visit Our Store",
+      "lead": "Come see the collection in person.",
       "whatsapp": "Chat on WhatsApp"
     },
-    "closing": "Pure Roots, Pure Trust, Pure Health."
+    "closing": "Thank you for choosing {store}."
   },
   "contact": {
     "title": "Get in touch",
