@@ -64,10 +64,10 @@
     "founder": {
       "eyebrow": "Meet our founder",
       "name": "Sunder Singh Chauhan",
-      "role": "Founder & Managing Director, PureRoot Natural Foods",
-      "imageAlt": "Sunder Singh Chauhan, Founder and Managing Director of PureRoot Natural Foods",
+      "role": "Founder & Managing Director, {brand}",
+      "imageAlt": "Sunder Singh Chauhan, Founder and Managing Director of {brand}",
       "commitmentTitle": "Leadership Commitment",
-      "commitment": "We believe leadership is not about giving orders; it is about setting standards, taking responsibility and inspiring people. At PureRoot Natural Foods, we commit to putting customers, quality and integrity before everything else.",
+      "commitment": "We believe leadership is not about giving orders; it is about setting standards, taking responsibility and inspiring people. At {brand}, we commit to putting customers, quality and integrity before everything else.",
       "promiseTitle": "Our Commitment",
       "promise": "To deliver pure, natural and healthy food products to every family with honesty and care."
     },
@@ -128,14 +128,14 @@
     },
     "mantra": {
       "eyebrow": "Our Leadership Mantra",
-      "title": "Pure Root, Pure Trust",
+      "title": "{store}, Pure Trust",
       "quote": "“We don’t just sell food; we build trust with every product.”",
       "line": "Purity in Products. Honesty in Business. Trust in Every Home."
     },
     "visit": {
       "title": "Scan to Order",
       "lead": "Natural • Premium • Pure",
-      "qrAlt": "QR code to order from PureRoot Natural Foods",
+      "qrAlt": "QR code to order from {brand}",
       "whatsapp": "Chat on WhatsApp"
     },
     "closing": "Pure Roots, Pure Trust, Pure Health."

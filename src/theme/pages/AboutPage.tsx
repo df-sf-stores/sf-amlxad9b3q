@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { Link, StoreLogo, useStorefront } from '@dripfunnel/storefront-core/theme'
+import { Link, ThemeImage, useStorefront } from '@dripfunnel/storefront-core/theme'
 import { Layout } from '../components/Layout'
 import { Ornament } from '../components/Ornament'
 import styles from '../styles/about.module.css'
@@ -20,6 +20,7 @@ const Principle = ({ title, body, children }: { title: string; body: string; chi
 
 export const AboutPage = () => {
   const { store, t } = useStorefront()
+  const brand = store.tagline ?? store.name
   const address = store.address ? [store.address.street, store.address.city, store.address.region, store.address.postal].filter(Boolean).join(', ') : ''
   const whatsapp = store.social.find((s) => s.network === 'whatsapp')
   const details = address || store.contactPhone || store.contactEmail || whatsapp
@@ -34,14 +35,20 @@ export const AboutPage = () => {
 
       <section className={styles.story}>
         <div className={styles.logoCard}>
-          <StoreLogo className={styles.logo} />
+          <ThemeImage
+            src="founder-sunder.webp"
+            alt={t('pages.about.founder.imageAlt', { brand })}
+            ratio={4 / 5}
+            sizes="(min-width: 768px) 448px, 90vw"
+            className={styles.founderPhoto}
+          />
         </div>
         <div className={styles.storyCopy}>
           <p className={styles.eyebrow}>{t('pages.about.founder.eyebrow')}</p>
           <h2 className={styles.heading}>{t('pages.about.founder.name')}</h2>
-          <p className={styles.role}>{t('pages.about.founder.role')}</p>
+          <p className={styles.role}>{t('pages.about.founder.role', { brand })}</p>
           <h3 className={styles.subheading}>{t('pages.about.founder.commitmentTitle')}</h3>
-          <p className={styles.lead}>{t('pages.about.founder.commitment')}</p>
+          <p className={styles.lead}>{t('pages.about.founder.commitment', { brand })}</p>
           <div className={styles.promiseNote}>
             <p className={styles.promiseNoteTitle}>{t('pages.about.founder.promiseTitle')}</p>
             <p className={styles.promiseNoteBody}>{t('pages.about.founder.promise')}</p>
@@ -68,11 +75,11 @@ export const AboutPage = () => {
         </div>
         <ol className={styles.principles}>
           <Principle title={t('pages.about.principles.quality.title')} body={t('pages.about.principles.quality.body')}>
-            <path d="M6 9a6 6 0 1 0 12 0a6 6 0 1 0-12 0" />
+            <circle cx="12" cy="9" r="6" />
             <path d="M8.5 13.9L7 22l5-3 5 3-1.5-8.1M12 6.5l.8 1.6 1.7.3-1.2 1.2.3 1.7-1.6-.8-1.6.8.3-1.7-1.2-1.2 1.7-.3z" />
           </Principle>
           <Principle title={t('pages.about.principles.customer.title')} body={t('pages.about.principles.customer.body')}>
-            <path d="M5.5 8a3.5 3.5 0 1 0 7 0a3.5 3.5 0 1 0-7 0" />
+            <circle cx="9" cy="8" r="3.5" />
             <path d="M2.5 20a6.5 6.5 0 0113 0M16 4.5a3.5 3.5 0 010 7M18 14a6 6 0 013.5 6" />
           </Principle>
           <Principle title={t('pages.about.principles.honesty.title')} body={t('pages.about.principles.honesty.body')}>
@@ -85,13 +92,13 @@ export const AboutPage = () => {
             <path d="M9 18h6M10 21h4M12 3a6 6 0 00-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0012 3z" />
           </Principle>
           <Principle title={t('pages.about.principles.teamwork.title')} body={t('pages.about.principles.teamwork.body')}>
-            <path d="M9.5 6a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0-5 0" />
-            <path d="M3 9a2 2 0 1 0 4 0a2 2 0 1 0-4 0" />
-            <path d="M17 9a2 2 0 1 0 4 0a2 2 0 1 0-4 0" />
+            <circle cx="12" cy="6" r="2.5" />
+            <circle cx="5" cy="9" r="2" />
+            <circle cx="19" cy="9" r="2" />
             <path d="M7.5 20v-3a4.5 4.5 0 019 0v3M1.5 18v-1.5A3.5 3.5 0 015 13M22.5 18v-1.5A3.5 3.5 0 0019 13" />
           </Principle>
           <Principle title={t('pages.about.principles.ownership.title')} body={t('pages.about.principles.ownership.body')}>
-            <path d="M7 4h10a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Z" />
+            <rect x="4" y="4" width="16" height="16" rx="3" />
             <path d="M8 12l3 3 5-6" />
           </Principle>
           <Principle title={t('pages.about.principles.trust.title')} body={t('pages.about.principles.trust.body')}>
@@ -109,13 +116,13 @@ export const AboutPage = () => {
       <section className={styles.mantra}>
         <div className={styles.mantraCard}>
           <p className={styles.heroEyebrow}>{t('pages.about.mantra.eyebrow')}</p>
-          <h2 className={styles.mantraTitle}>{t('pages.about.mantra.title')}</h2>
+          <h2 className={styles.mantraTitle}>{t('pages.about.mantra.title', { store: store.name })}</h2>
           <p className={styles.mantraQuote}>{t('pages.about.mantra.quote')}</p>
           <Ornament className={styles.heroOrnament} />
           <p className={styles.mantraLine}>{t('pages.about.mantra.line')}</p>
           <p className={styles.mantraSign}>
             <span className={styles.mantraName}>{t('pages.about.founder.name')}</span>
-            {t('pages.about.founder.role')}
+            {t('pages.about.founder.role', { brand })}
           </p>
         </div>
       </section>
@@ -124,6 +131,9 @@ export const AboutPage = () => {
         <div className={details ? styles.visitCard : `${styles.visitCard} ${styles.visitCardSolo}`}>
           <div className={styles.visitPanel}>
             <h2 className={styles.visitTitle}>{t('pages.about.visit.title')}</h2>
+            <div className={styles.qr}>
+              <ThemeImage src="scan-to-order.png" alt={t('pages.about.visit.qrAlt', { brand })} ratio={1} sizes="240px" className={styles.qrImage} />
+            </div>
             <p className={styles.visitLead}>{t('pages.about.visit.lead')}</p>
           </div>
           {details ? (
