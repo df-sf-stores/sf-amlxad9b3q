@@ -6,7 +6,6 @@ App. From then on the AI designer writes that store's theme (`src/theme/**`, `co
 `routes.json`) inside the walls of the storefront ARCHITECTURE §3; everything else here is
 locked.
 
-
 Specification: [docs/storefront/ARCHITECTURE.md](../../docs/storefront/ARCHITECTURE.md) and
 [docs/storefront/DESIGN.md](../../docs/storefront/DESIGN.md).
 
