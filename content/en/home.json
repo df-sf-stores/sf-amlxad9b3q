@@ -4,7 +4,7 @@
     "titleStart": "Spices & dry fruits,",
     "titleEm": "the way nature",
     "titleEnd": "made them.",
-    "lead": "Freshly ground masalas and hand-picked premium dry fruits from Jaipur — no added colours, no preservatives, nothing hidden.",
+    "lead": "Freshly ground masalas and hand-picked premium dry fruits — no added colours, no preservatives, nothing hidden.",
     "hindi": "प्रकृति की शुद्धता, आपके परिवार के लिए",
     "shop": "Shop Now",
     "cart": "View Cart",
@@ -20,11 +20,26 @@
   },
   "trust": {
     "label": "Our promises",
-    "one": { "title": "100% Natural", "body": "Straight from the farm" },
-    "two": { "title": "No Added Colours", "body": "Real colour, real taste" },
-    "three": { "title": "No Preservatives", "body": "Pure & safe" },
-    "four": { "title": "Premium Quality", "body": "Hand-picked & graded" },
-    "five": { "title": "Ethically Packed", "body": "Hygienic, sealed pouches" }
+    "one": {
+      "title": "100% Natural",
+      "body": "Straight from the farm"
+    },
+    "two": {
+      "title": "No Added Colours",
+      "body": "Real colour, real taste"
+    },
+    "three": {
+      "title": "No Preservatives",
+      "body": "Pure & safe"
+    },
+    "four": {
+      "title": "Premium Quality",
+      "body": "Hand-picked & graded"
+    },
+    "five": {
+      "title": "Ethically Packed",
+      "body": "Hygienic, sealed pouches"
+    }
   },
   "categories": {
     "eyebrow": "Shop by Category",
@@ -86,9 +101,21 @@
     "title": "From whole spice to your kitchen.",
     "lead": "No filters on the colour — that deep red and golden yellow is what real, unadulterated spice looks like.",
     "shop": "Shop this",
-    "one": { "product": "premium-red-chilli-powder-1-kg", "title": "Red Chilli Powder", "body": "Bright colour, bold heat" },
-    "two": { "product": "almonds-1-kg", "title": "Sealed for Freshness", "body": "Aroma locked in every pouch" },
-    "three": { "product": "pure-haldi-powder-1-kg", "title": "Haldi Powder", "body": "Ground turmeric root, 100% natural" }
+    "one": {
+      "product": "premium-red-chilli-powder-1-kg",
+      "title": "Red Chilli Powder",
+      "body": "Bright colour, bold heat"
+    },
+    "two": {
+      "product": "almonds-1-kg",
+      "title": "Sealed for Freshness",
+      "body": "Aroma locked in every pouch"
+    },
+    "three": {
+      "product": "pure-haldi-powder-1-kg",
+      "title": "Haldi Powder",
+      "body": "Ground turmeric root, 100% natural"
+    }
   },
   "story": {
     "product": "walnuts-1-kg",
@@ -99,9 +126,18 @@
     "one": "PureRoot Natural Foods was started with a simple belief: the food your family eats every day should be exactly what it says on the pack. Our spices are carefully sourced, naturally processed and packed to preserve their purity, flavour and goodness.",
     "two": "From everyday masalas to premium dry fruits, every product is FSSAI licensed, free from added colours and preservatives, and packed with care in Jaipur, Rajasthan.",
     "stats": {
-      "one": { "value": "8+", "label": "Pure products" },
-      "two": { "value": "100%", "label": "Natural ingredients" },
-      "three": { "value": "0", "label": "Added preservatives" }
+      "one": {
+        "value": "8+",
+        "label": "Pure products"
+      },
+      "two": {
+        "value": "100%",
+        "label": "Natural ingredients"
+      },
+      "three": {
+        "value": "0",
+        "label": "Added preservatives"
+      }
     },
     "by": "Marketing & Manufacturing by",
     "maker": "Kaneriya And Sons"
@@ -109,22 +145,71 @@
   "steps": {
     "eyebrow": "How to Order",
     "title": "Fresh pantry staples in three easy steps.",
-    "one": { "title": "Pick your products", "body": "Browse our spices and dry fruits and choose what your kitchen needs." },
-    "two": { "title": "Add to cart & checkout", "body": "Add them to your cart, enter your address and pay securely online." },
-    "three": { "title": "Delivered fresh", "body": "We pack your order fresh in sealed pouches and send it to your door." }
+    "one": {
+      "title": "Pick your products",
+      "body": "Browse our spices and dry fruits and choose what your kitchen needs."
+    },
+    "two": {
+      "title": "Add to cart & checkout",
+      "body": "Add them to your cart, enter your address and pay securely online."
+    },
+    "three": {
+      "title": "Delivered fresh",
+      "body": "We pack your order fresh in sealed pouches and send it to your door."
+    }
   },
   "reviews": {
     "eyebrow": "Customer Love",
     "title": "Families who taste the difference.",
     "lead": "What our customers say about PureRoot spices and dry fruits.",
-    "one": { "name": "Priya Sharma", "place": "Jaipur, Rajasthan", "product": "Haldi Powder", "text": "The haldi has such a deep colour and fresh smell — you can tell nothing is mixed in. My dal and sabzi look and taste like my nani's kitchen again." },
-    "two": { "name": "Rajesh Agarwal", "place": "Jaipur, Rajasthan", "product": "Red Chilli Powder", "text": "Red chilli powder gives proper colour without making the food overly hot. No artificial red tint on the fingers like the loose masala from the market." },
-    "three": { "name": "Neha Khandelwal", "place": "Ajmer, Rajasthan", "product": "Walnut Kernels", "text": "Ordered the walnuts for my kids' morning snack. Kernels were light, crunchy and not bitter at all. Very fair for this quality." },
-    "four": { "name": "Vikram Singh Rathore", "place": "Jodhpur, Rajasthan", "product": "Garam Masala", "text": "The garam masala aroma fills the whole kitchen. A small pinch is enough for a full pot of chhole. Will definitely reorder." },
-    "five": { "name": "Anjali Mehta", "place": "Udaipur, Rajasthan", "product": "Kaju Premium Cashews", "text": "Big, whole cashews — hardly any broken pieces in the pack. Used them for kaju katli at home and everyone asked where I bought them." },
-    "six": { "name": "Suresh Choudhary", "place": "Sikar, Rajasthan", "product": "Bulk Order", "text": "They replied quickly, confirmed everything and delivered to my shop on time. Good for bulk orders." },
-    "seven": { "name": "Kavita Jain", "place": "Kota, Rajasthan", "product": "Badam Premium Almonds", "text": "I soak the almonds overnight for the whole family. They are fresh, uniform in size and taste naturally sweet. The pouch keeps them crisp." },
-    "eight": { "name": "Amit Gupta", "place": "New Delhi", "product": "Coriander Powder", "text": "Dhaniya powder smells like freshly roasted seeds, not like dust. Glad to find a local Jaipur brand that is FSSAI certified and honest." }
+    "one": {
+      "name": "Priya Sharma",
+      "place": "Jaipur, Rajasthan",
+      "product": "Haldi Powder",
+      "text": "The haldi has such a deep colour and fresh smell — you can tell nothing is mixed in. My dal and sabzi look and taste like my nani's kitchen again."
+    },
+    "two": {
+      "name": "Rajesh Agarwal",
+      "place": "Jaipur, Rajasthan",
+      "product": "Red Chilli Powder",
+      "text": "Red chilli powder gives proper colour without making the food overly hot. No artificial red tint on the fingers like the loose masala from the market."
+    },
+    "three": {
+      "name": "Neha Khandelwal",
+      "place": "Ajmer, Rajasthan",
+      "product": "Walnut Kernels",
+      "text": "Ordered the walnuts for my kids' morning snack. Kernels were light, crunchy and not bitter at all. Very fair for this quality."
+    },
+    "four": {
+      "name": "Vikram Singh Rathore",
+      "place": "Jodhpur, Rajasthan",
+      "product": "Garam Masala",
+      "text": "The garam masala aroma fills the whole kitchen. A small pinch is enough for a full pot of chhole. Will definitely reorder."
+    },
+    "five": {
+      "name": "Anjali Mehta",
+      "place": "Udaipur, Rajasthan",
+      "product": "Kaju Premium Cashews",
+      "text": "Big, whole cashews — hardly any broken pieces in the pack. Used them for kaju katli at home and everyone asked where I bought them."
+    },
+    "six": {
+      "name": "Suresh Choudhary",
+      "place": "Sikar, Rajasthan",
+      "product": "Bulk Order",
+      "text": "They replied quickly, confirmed everything and delivered to my shop on time. Good for bulk orders."
+    },
+    "seven": {
+      "name": "Kavita Jain",
+      "place": "Kota, Rajasthan",
+      "product": "Badam Premium Almonds",
+      "text": "I soak the almonds overnight for the whole family. They are fresh, uniform in size and taste naturally sweet. The pouch keeps them crisp."
+    },
+    "eight": {
+      "name": "Amit Gupta",
+      "place": "New Delhi",
+      "product": "Coriander Powder",
+      "text": "Dhaniya powder smells like freshly roasted seeds, not like dust. Glad to find a local Jaipur brand that is FSSAI certified and honest."
+    }
   },
   "faq": {
     "eyebrow": "FAQ",
@@ -132,12 +217,30 @@
     "lead": "Can't find what you're looking for? We're one message away.",
     "ask": "Ask on WhatsApp",
     "contact": "Contact us",
-    "one": { "q": "How do I place an order?", "a": "Add the products you want to your cart, then check out with your delivery address and pay securely online. You'll get an order confirmation straight away." },
-    "two": { "q": "Are your products really 100% natural?", "a": "Yes. Our spices are ground from whole ingredients with no added colours, fillers or preservatives, and our dry fruits are packed as they are — the raisins have no added sugar." },
-    "three": { "q": "Are you FSSAI certified?", "a": "Yes. PureRoot Natural Foods is FSSAI licensed — Licence No. 22226083000608." },
-    "four": { "q": "Do you deliver to my area?", "a": "We ship from Dhawas, Jaipur. Enter your pin code at checkout to see the delivery options and timelines for your area." },
-    "five": { "q": "Do you take bulk or wholesale orders?", "a": "Yes — for shops, caterers and bulk family orders, get in touch with your requirement and we'll share a quote." },
-    "six": { "q": "How should I store spices and dry fruits?", "a": "Store in a cool, dry place away from direct sunlight, and keep the pouch tightly sealed after opening to preserve aroma and crunch." }
+    "one": {
+      "q": "How do I place an order?",
+      "a": "Add the products you want to your cart, then check out with your delivery address and pay securely online. You'll get an order confirmation straight away."
+    },
+    "two": {
+      "q": "Are your products really 100% natural?",
+      "a": "Yes. Our spices are ground from whole ingredients with no added colours, fillers or preservatives, and our dry fruits are packed as they are — the raisins have no added sugar."
+    },
+    "three": {
+      "q": "Are you FSSAI certified?",
+      "a": "Yes. PureRoot Natural Foods is FSSAI licensed — Licence No. 22226083000608."
+    },
+    "four": {
+      "q": "Do you deliver to my area?",
+      "a": "We ship from Dhawas, Jaipur. Enter your pin code at checkout to see the delivery options and timelines for your area."
+    },
+    "five": {
+      "q": "Do you take bulk or wholesale orders?",
+      "a": "Yes — for shops, caterers and bulk family orders, get in touch with your requirement and we'll share a quote."
+    },
+    "six": {
+      "q": "How should I store spices and dry fruits?",
+      "a": "Store in a cool, dry place away from direct sunlight, and keep the pouch tightly sealed after opening to preserve aroma and crunch."
+    }
   },
   "contact": {
     "eyebrow": "Get in Touch",
