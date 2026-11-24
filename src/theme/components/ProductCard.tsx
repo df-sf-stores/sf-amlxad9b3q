@@ -22,7 +22,7 @@ export const badgeTone = (badge: Badge) => {
   return undefined
 }
 
-export const ProductCard = ({ product }: { product: Card }) => {
+export const ProductCard =({ product }: { product: Card }) => {
   const { store, locale, t } = useStorefront()
   const { title, size } = splitName(product.name)
   const badge = product.badges[0]
@@ -43,15 +43,32 @@ export const ProductCard = ({ product }: { product: Card }) => {
         <h3 className={styles.cardName}>
           <Link href={product.href}>{title}</Link>
         </h3>
+        {/* Preview for the client: veg mark, a fixed 5-star rating and a delivery date 7 days out. Real data comes later. */}
+        <span className={styles.vegMark} role="img" aria-label={t('shop.card.veg')} title={t('shop.card.veg')}>
+          <span />
+        </span>
+        <span className={styles.stars} aria-hidden="true">
+          {[0, 1, 2, 3, 4].map((i) => (
+            <svg key={i} viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M10 1.5l2.6 5.3 5.9.9-4.25 4.1 1 5.8L10 14.8l-5.25 2.8 1-5.8L1.5 7.7l5.9-.9z" />
+            </svg>
+          ))}
+          <svg className={styles.starsCaret} viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5l5 5 5-5" />
+          </svg>
+        </span>
         <div className={styles.cardMeta}>
-          {size ? <span className={styles.pill}>{size}</span> : null}
           {product.price ? (
             <p className={styles.cardPrice}>
               {product.from ? <span className={styles.from}>{t('shop.card.from')}</span> : null}
               <Price money={product.price} compareAt={product.compareAt} includesTax={store.pricesIncludeTax} locale={locale} t={t} className={styles.price} />
             </p>
           ) : null}
+          {size ? <span className={styles.pill}>{size}</span> : null}
         </div>
+        <p className={styles.delivery}>
+          {t('shop.card.deliveryLead')} <strong>{t('shop.card.deliveryDate')}</strong>
+        </p>
         <Link href={product.href} className={cx(styles.cardButton, !product.stock.inStock && styles.cardButtonOff)}>
           {product.stock.inStock ? <Icon name="cart" /> : null}
           {product.stock.inStock ? t('shop.card.shop') : t('shop.card.soldOut')}

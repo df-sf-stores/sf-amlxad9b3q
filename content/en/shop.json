@@ -7,7 +7,10 @@
     "soldOut": "Sold out",
     "noPicture": "No picture yet",
     "view": "View details",
-    "shop": "Shop now"
+    "shop": "Shop now",
+    "veg": "Vegetarian",
+    "deliveryLead": "FREE delivery",
+    "deliveryDate": "Tue, 1 Dec"
   },
   "lightbox": {
     "open": "View a larger picture of {name}",

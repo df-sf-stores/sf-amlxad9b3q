@@ -240,6 +240,53 @@
   font-weight: 500;
 }
 
+.stars {
+  margin: 0;
+}
+
+.stars svg {
+  width: 18px;
+  height: 18px;
+}
+
+.vegMark {
+  margin-top: 0;
+  align-self: center;
+}
+
+.delivery {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--forest);
+  border-radius: 12px;
+  background: var(--bg-soft);
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+
+.delivery strong {
+  color: var(--forest);
+}
+
+.deliveryIcon {
+  flex: none;
+  box-sizing: content-box;
+  width: 18px;
+  height: 18px;
+  padding: 8px;
+  border-radius: 50%;
+  background: var(--forest);
+  color: #fff;
+}
+
+.delivery strong {
+  font-weight: 700;
+}
+
 .pills {
   display: flex;
   flex-wrap: wrap;
@@ -320,6 +367,10 @@
   color: var(--green);
   font-size: 0.9rem;
   font-weight: 700;
+}
+
+.stockOut {
+  color: var(--danger);
 }
 
 .stock::before {

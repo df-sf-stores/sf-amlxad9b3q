@@ -1,4 +1,5 @@
 import { Breadcrumbs, LegalNotices, Link, Price, RichText, useProduct, useStorefront } from '@dripfunnel/storefront-core/theme'
+import { cx } from '../components/cx'
 import { Icon } from '../components/Icons'
 import { BuyButtons } from '../components/interactive/BuyButtons'
 import { Gallery } from '../components/interactive/Gallery'
@@ -56,21 +57,38 @@ export const ProductPage = () => {
               <h1 className={styles.title}>{product.name}</h1>
               <WishlistHeart productId={product.id} name={product.name} versionId={page.version?.id ?? null} />
             </div>
+            {/* Preview for the client: a fixed 5-star rating, the veg mark and a delivery date 7 days out. Real data comes later. */}
+            <span className={cx(shop.stars, styles.stars)} aria-hidden="true">
+              {[0, 1, 2, 3, 4].map((i) => (
+                <svg key={i} viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M10 1.5l2.6 5.3 5.9.9-4.25 4.1 1 5.8L10 14.8l-5.25 2.8 1-5.8L1.5 7.7l5.9-.9z" />
+                </svg>
+              ))}
+            </span>
             {page.price ? (
               <p className={styles.price}>
                 {page.from ? <span className={styles.from}>{t('shop.card.from')}</span> : null}
                 <Price money={page.price} compareAt={page.compareAt} includesTax={store.pricesIncludeTax} locale={locale} t={t} className={styles.priceTag} />
               </p>
             ) : null}
+            <span className={cx(shop.vegMark, styles.vegMark)} role="img" aria-label={t('shop.card.veg')} title={t('shop.card.veg')}>
+              <span />
+            </span>
             {size && !page.options.length ? (
               <div className={styles.pills}>
                 <span className={styles.pill}>{t('shop.product.pack', { size })}</span>
               </div>
             ) : null}
             <Options page={page} />
-            <p className={styles.stock} role="status">
-              {firstMissing ? t('shop.product.choose', { option: firstMissing.name }) : page.stock?.inStock ? t('shop.product.inStock') : t('shop.product.outOfStock')}
-            </p>
+            {firstMissing ? (
+              <p className={styles.stock} role="status">
+                {t('shop.product.choose', { option: firstMissing.name })}
+              </p>
+            ) : page.stock && !page.stock.inStock ? (
+              <p className={cx(styles.stock, styles.stockOut)} role="status">
+                {t('shop.product.outOfStock')}
+              </p>
+            ) : null}
             <BuyButtons page={page} />
             {product.highlights.length ? (
               <ul className={styles.highlights}>
@@ -102,6 +120,12 @@ export const ProductPage = () => {
                 {t('shop.product.trust.fresh')}
               </li>
             </ul>
+            <p className={styles.delivery}>
+              <Icon name="truck" className={styles.deliveryIcon} />
+              <span>
+                {t('shop.card.deliveryLead')} <strong>{t('shop.card.deliveryDate')}</strong>
+              </span>
+            </p>
             <LegalNotices notices={product.legal} t={t} className={styles.legal} />
             <div className={styles.sections}>
               {product.description ? (

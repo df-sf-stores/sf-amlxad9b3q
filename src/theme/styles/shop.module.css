@@ -567,6 +567,57 @@
   font-weight: 700;
 }
 
+.vegMark {
+  display: grid;
+  place-items: center;
+  align-self: flex-start;
+  width: 22px;
+  height: 22px;
+  margin-top: 10px;
+  border: 2px solid #128a3e;
+  border-radius: 3px;
+  background: #fff;
+}
+
+.vegMark span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #128a3e;
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  margin-top: 8px;
+}
+
+.stars svg {
+  width: 15px;
+  height: 15px;
+  fill: #f3a847;
+}
+
+.stars .starsCaret {
+  width: 14px;
+  height: 14px;
+  margin-left: 2px;
+  fill: none;
+  stroke: var(--ink, #333);
+  stroke-width: 2.5;
+}
+
+.delivery {
+  margin: 0 0 14px;
+  color: var(--ink, #333);
+  font-size: 0.85rem;
+}
+
+.delivery strong {
+  font-weight: 700;
+}
+
 .cardPrice {
   display: flex;
   flex-wrap: wrap;
